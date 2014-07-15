@@ -2,45 +2,125 @@
 //  PMUAppDelegate.m
 //  PickMeUp
 //
-//  Created by Mac on 04/07/14.
+//  Created by Santanu.Adhikary@sbr-technologies.com on 04/07/14.
 //  Copyright (c) 2014 sbrtech. All rights reserved.
 //
 
 #import "PMUAppDelegate.h"
+#import "PMUViewController.h"
+#import "PMUGlobalAccess.h"
+#import "PMULoginViewController.h"
 
+/*
+ */
 @implementation PMUAppDelegate
-
+/*
+ */
+@synthesize NavigationController            = _NavigationController;
+/*
+ */
+@synthesize GlobalAccess                    = _GlobalAccess;
+/*
+ */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    /*
+     *  Application launch, declare all veriables
+     *  @Window
+     *  @NavigationController
+     *  @windowVisibility
+     *  @ViewController
+     */
+    
+    self.window                         = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setBackgroundColor:PMUGlobalAccess.GlobalBckgroundColor];
+    self.window.rootViewController      = _NavigationController =  [self navigationController];
+    [self HideAppnavigationBar];
+    [self.window makeKeyAndVisible];
+    
+    _GlobalAccess = [self SetGlobalAccess];
+    [_GlobalAccess RegisterDeviceForRemoteNotificationWithBadgeCounter:YES WithRemoveAllNotification:YES];
     return YES;
 }
-							
+/*
+ */
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    
+}
+/*
+ */
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+}
+/*
+ */
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    self.deviceTokenString = [_GlobalAccess FilterUserDevicetokenWithdevicetoken:deviceToken.description];
+    [_GlobalAccess SetUserDevicetokenWithDeviceToken:self.deviceTokenString];
+}
+/*
+ */
+-(void)HideAppnavigationBar
+{
+    [_NavigationController setNavigationBarHidden:YES];
+}
+/*
+ */
+-(PMUGlobalAccess * const)SetGlobalAccess {
+    return [[PMUGlobalAccess alloc] init];
+}
+/*
+ */
+- (UINavigationController *)navigationController {
+    return [[UINavigationController alloc] initWithRootViewController:[self RootViewController]];
+}
+/*
+ */
+- (PMUViewController *)RootViewController {
+    return self.viewController = [[PMUViewController alloc] initWithNibName:PMUGlobalAccess.MainViewScreen bundle:nil];
+}
+/*
+ */
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
 }
-
+/*
+ */
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
 }
-
+/*
+ */
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+  
 }
-
+/*
+ */
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+   
 }
-
+/*
+ */
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
 
+}
+/*
+ */
+-(void)SignOutFromAccount
+{
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    
+    PMULoginViewController *LoginView = [[PMULoginViewController alloc] init];
+    [self.NavigationController pushViewController:LoginView animated:NO];
+}
 @end

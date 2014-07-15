@@ -6,11 +6,71 @@
 
 #import <Availability.h>
 
-#ifndef __IPHONE_5_0
-#warning "This project uses features only available in iOS SDK 5.0 and later."
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+
+#define DEBUGMODE @"NO"
+#define API @"http://pickmeuptaxi.com/app/"
+#define GraphAPI @"https://graph.facebook.com/"
+#define GLOBALTEXTFONT_Title @"OpenSans-Semibold"
+#define WEBSERVICEURL @"http://pickmeuptaxi.com/app/"
+
+
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+    
+#ifdef DEBUG
+#define PMUAPPPRINT(__fmt, ...) NSLog(@"%s: "__fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
+#else
+#define PMUAPPPRINT(__fmt, ...) ((void)0)
+#endif // #ifdef DEBUG
+    
+    
+#ifdef DEBUG
+#define PMUAPPASSERT(__value) { if ( !(__value) ) { NSLog(@"%s: *ASSERT(%s)", __PRETTY_FUNCTION__, #__value); } } ((void)0)
+#else
+#define PMUAPPASSERT(__value) ((void)0)
+#endif // #ifdef DEBUG
+    
+    
+#ifdef DEBUG
+#define PMUAPPERROR(__info) NSLog(@"%s: *ERROR(%@)", __PRETTY_FUNCTION__, __info)
+#else
+#define PMUAPPERROR(__info) ((void)0)
+#endif // #ifdef DEBUG
+    
+    
+#ifdef DEBUG
+#define PMUAPPPRINTMETHOD() NSLog(@"%s", __PRETTY_FUNCTION__)
+#else
+#define PMUAPPPRINTMETHOD() ((void)0)
+#endif // #ifdef DEBUG
+    
+    
+#ifdef DEBUG
+#define PMUAPPTESTVALUE(__value, __info) { id __result = (__value) ? @"YES" : @"NO"; NSLog(@"%s: %@ is %@", __PRETTY_FUNCTION__, __info, __result); }
+#else
+#define PMUAPPTESTVALUE(__value, __info) ((void)0)
+#endif // #ifdef DEBUG
+    
+    
+#ifdef __cplusplus
+}
+
+
 #endif

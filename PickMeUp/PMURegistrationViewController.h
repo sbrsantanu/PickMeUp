@@ -1,5 +1,5 @@
 //
-//  PMUViewController.h
+//  PMURegistrationViewController.h
 //  PickMeUp
 //
 //  Created by Mac on 04/07/14.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PMUGlobalMethods.h"
 
-@interface PMUViewController : PMUGlobalMethods
+@interface PMURegistrationViewController : PMUGlobalMethods
 
 @end
