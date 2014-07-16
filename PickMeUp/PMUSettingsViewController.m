@@ -247,8 +247,9 @@
             break;
         case 5:
         {
-            PMUAppDelegate *mainDelegate = (PMUAppDelegate *)[[UIApplication sharedApplication] delegate];
-            [mainDelegate SignOutFromAccount];
+            UIAlertView *SignoutAlert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure to signout" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign Out", nil];
+            [SignoutAlert setTag:777];
+            [SignoutAlert show];
             break;
         }
     }
@@ -322,6 +323,20 @@
 {
     PMUUserLocationViewController *UserLocation = [[PMUUserLocationViewController alloc] init];
     [self GotoDifferentViewWithAnimation:UserLocation];
+}
+
+#pragma Uialertview protocol details
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 777) {
+        
+        if (buttonIndex == 1) {
+            
+            PMUAppDelegate *mainDelegate = (PMUAppDelegate *)[[UIApplication sharedApplication] delegate];
+            [mainDelegate SignOutFromAccount];
+        }
+    }
 }
 - (void)didReceiveMemoryWarning
 {

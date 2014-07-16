@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042B675E19768B3200D8B1BD /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B675D19768B3200D8B1BD /* ok.png */; };
+		042B676F1976A0F900D8B1BD /* pmuchange.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B67691976A0F900D8B1BD /* pmuchange.png */; };
+		042B67701976A0F900D8B1BD /* pmulogin.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B676A1976A0F900D8B1BD /* pmulogin.png */; };
+		042B67711976A0F900D8B1BD /* pmupickmeup.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B676B1976A0F900D8B1BD /* pmupickmeup.png */; };
+		042B67721976A0F900D8B1BD /* pmurecover.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B676C1976A0F900D8B1BD /* pmurecover.png */; };
+		042B67731976A0F900D8B1BD /* pmusave.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B676D1976A0F900D8B1BD /* pmusave.png */; };
+		042B67741976A0F900D8B1BD /* pmusignup.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B676E1976A0F900D8B1BD /* pmusignup.png */; };
+		042B67761976A21E00D8B1BD /* pmuregister.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B67751976A21E00D8B1BD /* pmuregister.png */; };
 		0457708E196EC13100D93F9B /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0457708D196EC13100D93F9B /* settings.png */; };
 		04577092196EC66300D93F9B /* PMUSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04577090196EC66300D93F9B /* PMUSettingsViewController.m */; };
 		04577093196EC66300D93F9B /* PMUSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04577091196EC66300D93F9B /* PMUSettingsViewController.xib */; };
@@ -123,6 +131,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042B675D19768B3200D8B1BD /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
+		042B67691976A0F900D8B1BD /* pmuchange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmuchange.png; sourceTree = "<group>"; };
+		042B676A1976A0F900D8B1BD /* pmulogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmulogin.png; sourceTree = "<group>"; };
+		042B676B1976A0F900D8B1BD /* pmupickmeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmupickmeup.png; sourceTree = "<group>"; };
+		042B676C1976A0F900D8B1BD /* pmurecover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmurecover.png; sourceTree = "<group>"; };
+		042B676D1976A0F900D8B1BD /* pmusave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmusave.png; sourceTree = "<group>"; };
+		042B676E1976A0F900D8B1BD /* pmusignup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmusignup.png; sourceTree = "<group>"; };
+		042B67751976A21E00D8B1BD /* pmuregister.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pmuregister.png; sourceTree = "<group>"; };
 		0457708D196EC13100D93F9B /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		0457708F196EC66300D93F9B /* PMUSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMUSettingsViewController.h; sourceTree = "<group>"; };
 		04577090196EC66300D93F9B /* PMUSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMUSettingsViewController.m; sourceTree = "<group>"; };
@@ -304,6 +320,107 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042B675F1976931800D8B1BD /* AccessDenied */ = {
+			isa = PBXGroup;
+			children = (
+				042B67681976949200D8B1BD /* User Details */,
+				042B67661976945800D8B1BD /* Settings */,
+				042B67611976935500D8B1BD /* Edit Profile */,
+				042B67601976933A00D8B1BD /* Change Password */,
+			);
+			name = AccessDenied;
+			sourceTree = "<group>";
+		};
+		042B67601976933A00D8B1BD /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				04FDE23D197501A900B56C4B /* PMUChangePassViewController.h */,
+				04FDE23E197501A900B56C4B /* PMUChangePassViewController.m */,
+				04FDE23F197501A900B56C4B /* PMUChangePassViewController.xib */,
+			);
+			name = "Change Password";
+			sourceTree = "<group>";
+		};
+		042B67611976935500D8B1BD /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				04FDE2381975019700B56C4B /* PMUEditProfileViewController.h */,
+				04FDE2391975019700B56C4B /* PMUEditProfileViewController.m */,
+				04FDE23A1975019700B56C4B /* PMUEditProfileViewController.xib */,
+			);
+			name = "Edit Profile";
+			sourceTree = "<group>";
+		};
+		042B6762197693CF00D8B1BD /* Site Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				042B67641976940F00D8B1BD /* Privacy Policy */,
+				042B6763197693FE00D8B1BD /* Terms of Services */,
+			);
+			name = "Site Privacy";
+			sourceTree = "<group>";
+		};
+		042B6763197693FE00D8B1BD /* Terms of Services */ = {
+			isa = PBXGroup;
+			children = (
+				04FDE22E1974FB1700B56C4B /* PMUTOSViewController.h */,
+				04FDE22F1974FB1700B56C4B /* PMUTOSViewController.m */,
+				04FDE2301974FB1700B56C4B /* PMUTOSViewController.xib */,
+			);
+			name = "Terms of Services";
+			sourceTree = "<group>";
+		};
+		042B67641976940F00D8B1BD /* Privacy Policy */ = {
+			isa = PBXGroup;
+			children = (
+				04FDE2331974FB3500B56C4B /* PMUPrivacyViewController.h */,
+				04FDE2341974FB3500B56C4B /* PMUPrivacyViewController.m */,
+				04FDE2351974FB3500B56C4B /* PMUPrivacyViewController.xib */,
+			);
+			name = "Privacy Policy";
+			sourceTree = "<group>";
+		};
+		042B67651976943000D8B1BD /* Driver Details */ = {
+			isa = PBXGroup;
+			children = (
+				04FDE247197529BD00B56C4B /* PMURatingViewController.h */,
+				04FDE248197529BD00B56C4B /* PMURatingViewController.m */,
+				04FDE249197529BD00B56C4B /* PMURatingViewController.xib */,
+			);
+			name = "Driver Details";
+			sourceTree = "<group>";
+		};
+		042B67661976945800D8B1BD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0457708F196EC66300D93F9B /* PMUSettingsViewController.h */,
+				04577090196EC66300D93F9B /* PMUSettingsViewController.m */,
+				04577091196EC66300D93F9B /* PMUSettingsViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		042B67671976946C00D8B1BD /* UserLocation */ = {
+			isa = PBXGroup;
+			children = (
+				04F9C8AF196A82510053E017 /* PMUUserLocationViewController.h */,
+				04F9C8B0196A82510053E017 /* PMUUserLocationViewController.m */,
+				04F9C8B1196A82510053E017 /* PMUUserLocationViewController.xib */,
+				04F9C8B4196A82B70053E017 /* PMUUserLocationViewControllerSmall.xib */,
+			);
+			name = UserLocation;
+			sourceTree = "<group>";
+		};
+		042B67681976949200D8B1BD /* User Details */ = {
+			isa = PBXGroup;
+			children = (
+				04FDE2421975120000B56C4B /* PMUUserDetailsViewController.h */,
+				04FDE2431975120000B56C4B /* PMUUserDetailsViewController.m */,
+				04FDE2441975120000B56C4B /* PMUUserDetailsViewController.xib */,
+			);
+			name = "User Details";
+			sourceTree = "<group>";
+		};
 		047BF19919667E3800AD471D = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +525,9 @@
 		047BF1EA19669ACD00AD471D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				04FDE25019752D6400B56C4B /* rate_BG.png */,
+				042B67751976A21E00D8B1BD /* pmuregister.png */,
+				042B675D19768B3200D8B1BD /* ok.png */,
 				04FDE24C19752C2800B56C4B /* star_BG.png */,
 				04FDE24D19752C2800B56C4B /* starsel_BG.png */,
 				0457708D196EC13100D93F9B /* settings.png */,
@@ -419,6 +539,12 @@
 				04759E7A196D42D200A78D63 /* Marker.png */,
 				04577098196ED81A00D93F9B /* arrow-left-new.png */,
 				04577094196EC7FC00D93F9B /* 1405014454_Security.png */,
+				042B67691976A0F900D8B1BD /* pmuchange.png */,
+				042B676A1976A0F900D8B1BD /* pmulogin.png */,
+				042B676B1976A0F900D8B1BD /* pmupickmeup.png */,
+				042B676C1976A0F900D8B1BD /* pmurecover.png */,
+				042B676D1976A0F900D8B1BD /* pmusave.png */,
+				042B676E1976A0F900D8B1BD /* pmusignup.png */,
 				04759E7B196D42D200A78D63 /* Marker@2x.png */,
 				04759E77196D41D700A78D63 /* reg.png */,
 				04759E80196D487B00A78D63 /* pmu.png */,
@@ -593,32 +719,10 @@
 		04F9C8AE196A81F00053E017 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				04F9C8AF196A82510053E017 /* PMUUserLocationViewController.h */,
-				04FDE2331974FB3500B56C4B /* PMUPrivacyViewController.h */,
-				04FDE2341974FB3500B56C4B /* PMUPrivacyViewController.m */,
-				04FDE2351974FB3500B56C4B /* PMUPrivacyViewController.xib */,
-				04FDE2381975019700B56C4B /* PMUEditProfileViewController.h */,
-				04FDE2391975019700B56C4B /* PMUEditProfileViewController.m */,
-				04FDE247197529BD00B56C4B /* PMURatingViewController.h */,
-				04FDE248197529BD00B56C4B /* PMURatingViewController.m */,
-				04FDE249197529BD00B56C4B /* PMURatingViewController.xib */,
-				04FDE23A1975019700B56C4B /* PMUEditProfileViewController.xib */,
-				04FDE25019752D6400B56C4B /* rate_BG.png */,
-				04FDE23D197501A900B56C4B /* PMUChangePassViewController.h */,
-				04FDE23E197501A900B56C4B /* PMUChangePassViewController.m */,
-				04FDE23F197501A900B56C4B /* PMUChangePassViewController.xib */,
-				0457708F196EC66300D93F9B /* PMUSettingsViewController.h */,
-				04577090196EC66300D93F9B /* PMUSettingsViewController.m */,
-				04577091196EC66300D93F9B /* PMUSettingsViewController.xib */,
-				04F9C8B0196A82510053E017 /* PMUUserLocationViewController.m */,
-				04F9C8B1196A82510053E017 /* PMUUserLocationViewController.xib */,
-				04F9C8B4196A82B70053E017 /* PMUUserLocationViewControllerSmall.xib */,
-				04FDE22E1974FB1700B56C4B /* PMUTOSViewController.h */,
-				04FDE22F1974FB1700B56C4B /* PMUTOSViewController.m */,
-				04FDE2301974FB1700B56C4B /* PMUTOSViewController.xib */,
-				04FDE2421975120000B56C4B /* PMUUserDetailsViewController.h */,
-				04FDE2431975120000B56C4B /* PMUUserDetailsViewController.m */,
-				04FDE2441975120000B56C4B /* PMUUserDetailsViewController.xib */,
+				042B67671976946C00D8B1BD /* UserLocation */,
+				042B67651976943000D8B1BD /* Driver Details */,
+				042B6762197693CF00D8B1BD /* Site Privacy */,
+				042B675F1976931800D8B1BD /* AccessDenied */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -720,8 +824,11 @@
 				04F9C8D0196AD63B0053E017 /* sign-in.png in Resources */,
 				04F9C8CB196AD4980053E017 /* OpenSans-Semibold.ttf in Resources */,
 				04F9C8CC196AD4980053E017 /* ProximaNova-Light.otf in Resources */,
+				042B67701976A0F900D8B1BD /* pmulogin.png in Resources */,
+				042B67721976A0F900D8B1BD /* pmurecover.png in Resources */,
 				04FDE241197501A900B56C4B /* PMUChangePassViewController.xib in Resources */,
 				047BF1E419668E4200AD471D /* PMUViewControllerBig.xib in Resources */,
+				042B676F1976A0F900D8B1BD /* pmuchange.png in Resources */,
 				04FDE2321974FB1700B56C4B /* PMUTOSViewController.xib in Resources */,
 				04759E81196D487B00A78D63 /* pmu.png in Resources */,
 				04759E79196D41D700A78D63 /* reg.png in Resources */,
@@ -736,10 +843,13 @@
 				04F9C8B3196A82510053E017 /* PMUUserLocationViewController.xib in Resources */,
 				04FDE2371974FB3500B56C4B /* PMUPrivacyViewController.xib in Resources */,
 				04F9C8D4196AD8830053E017 /* login.png in Resources */,
+				042B67731976A0F900D8B1BD /* pmusave.png in Resources */,
+				042B67741976A0F900D8B1BD /* pmusignup.png in Resources */,
 				04759E7F196D47A900A78D63 /* ic_launcher1.png in Resources */,
 				047BF1BE19667E3800AD471D /* Images.xcassets in Resources */,
 				0457708E196EC13100D93F9B /* settings.png in Resources */,
 				04F9C8CE196AD6180053E017 /* single-input-box.png in Resources */,
+				042B67761976A21E00D8B1BD /* pmuregister.png in Resources */,
 				04577097196EC82700D93F9B /* arrow-left.png in Resources */,
 				04F9C8BF196ACBCB0053E017 /* splashscreen.png in Resources */,
 				047BF1F41966AFB800AD471D /* PMURegistrationViewController.xib in Resources */,
@@ -747,6 +857,8 @@
 				047BF1B019667E3800AD471D /* InfoPlist.strings in Resources */,
 				047BF2071966B14800AD471D /* PMUForgetPasswordViewControllerSmall.xib in Resources */,
 				04FDE2461975120000B56C4B /* PMUUserDetailsViewController.xib in Resources */,
+				042B675E19768B3200D8B1BD /* ok.png in Resources */,
+				042B67711976A0F900D8B1BD /* pmupickmeup.png in Resources */,
 				04F9C8C1196ACF0A0053E017 /* SScreen.png in Resources */,
 				047BF1EF1966AF9C00AD471D /* PMULoginViewController.xib in Resources */,
 				047BF1B919667E3800AD471D /* Main.storyboard in Resources */,

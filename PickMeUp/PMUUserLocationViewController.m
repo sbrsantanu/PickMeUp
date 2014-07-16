@@ -9,6 +9,7 @@
 #import "PMUUserLocationViewController.h"
 #import "PMUGlobalAccess.h"
 #import "PMUSettingsViewController.h"
+#import "PMURatingViewController.h"
 
 @interface PMUUserLocationViewController ()
 {
@@ -48,18 +49,6 @@
     [self RegisterDeviceForGetCurrentLocation];
     
     [self.navigationController setNavigationBarHidden:YES];
-    [_BlurView.layer setOpacity:0.5f];
-    [_BlurView1.layer setBorderWidth:1.0f];
-    [_BlurView1.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
-    [_BlurView1.layer setCornerRadius:2.25f];
-    
-    [_UserCurrentLocationMapView setDelegate:self];
-    [_UserCurrentLocationMapView setUserInteractionEnabled:YES];
-    [_UserCurrentLocationMapView setBackgroundColor:[UIColor clearColor]];
-    [_UserCurrentLocationMapView setMapType:MKMapTypeStandard];
-    [_UserCurrentLocationMapView setZoomEnabled:YES];
-    
-    [self ChangeUserLocation];
     
     UIView *HeaderView = (UIView *)[self.view viewWithTag:99];
     UIImageView *HeaderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 5, 120, 45)];
@@ -81,15 +70,35 @@
     HeaderView.layer.shadowRadius = 5;
     HeaderView.layer.shadowOpacity = 0.5;
     
-    [self.view bringSubviewToFront:HeaderView];
+    [_BlurView.layer setOpacity:0.5f];
+    [_BlurView1.layer setBorderWidth:1.0f];
+    [_BlurView1.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [_BlurView1.layer setCornerRadius:2.25f];
     
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized) {
+        
+        [_UserCurrentLocationMapView setDelegate:self];
+        [_UserCurrentLocationMapView setUserInteractionEnabled:YES];
+        [_UserCurrentLocationMapView setBackgroundColor:[UIColor clearColor]];
+        [_UserCurrentLocationMapView setMapType:MKMapTypeStandard];
+        [_UserCurrentLocationMapView setZoomEnabled:YES];
+        
+        [self ChangeUserLocation];
+        
+    } else {
+        
+        UIAlertView *AlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please allow access of location service from phone settings!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [AlertView show];
+        
+    }
+      
     [_PickMeUpButton addTarget:self action:@selector(PickmeUpOperation:) forControlEvents:UIControlEventTouchUpInside];
 }
 /*
  */
 -(IBAction)GoToSettings:(id)sender
 {
-    NSLog(@"this haskd");
+    
     PMUSettingsViewController *SettingsView = [[PMUSettingsViewController alloc] init];
     [self GotoDifferentViewWithAnimation:SettingsView];
 }
@@ -97,15 +106,22 @@
  */
 -(IBAction)PickmeUpOperation:(id)sender
 {
-    @try {
-        //
-        PMUSettingsViewController *SettingsView = [[PMUSettingsViewController alloc] init];
-        [self GotoDifferentViewWithAnimation:SettingsView];
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
         
-    }
-    @catch (NSException *exception) {
-        UIAlertView *PickmeUpOperationAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"there is some error, Try again Later" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-        [PickmeUpOperationAlert show];
+        UIAlertView *AlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please allow access of location service from phone settings to use this functionality!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [AlertView show];
+        
+    } else {
+        @try {
+        
+            PMURatingViewController *DriverDetails = [[PMURatingViewController alloc] init];
+            [self GotoDifferentViewWithAnimation:DriverDetails];
+            
+        }
+        @catch (NSException *exception) {
+            UIAlertView *PickmeUpOperationAlert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"there is some error, Try again Later" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+            [PickmeUpOperationAlert show];
+        }
     }
 }
 /*
@@ -159,12 +175,8 @@
     [CoreLocationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [CoreLocationManager setDistanceFilter:kCLDistanceFilterNone];
     [CoreLocationManager startUpdatingLocation];
-    
     CoreLocation = [CoreLocationManager location];
     UserCoordinate = [CoreLocation coordinate];
-    
-    NSLog(@"user lattitude ------ %f",UserCoordinate.latitude);
-    NSLog(@"user longitude ------ %f",UserCoordinate.longitude);
     
 }
 /*
@@ -174,9 +186,6 @@
     CoreLocation = [locations objectAtIndex:0];
     [CoreLocationManager stopUpdatingLocation];
     UserCoordinate = [CoreLocation coordinate];
-    
-    NSLog(@"user lattitude ------ %f",UserCoordinate.latitude);
-    NSLog(@"user longitude ------ %f",UserCoordinate.longitude);
     
     [self ChangeUserLocation];
     

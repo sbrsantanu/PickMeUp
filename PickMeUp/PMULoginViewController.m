@@ -130,18 +130,17 @@
         ValidationStatus = false;
         
     }
-//    else if([self CleanTextField:LogintextFieldPassword.text].length < 6 || [self CleanTextField:LogintextFieldPassword.text].length > 12)
-//    {
-//        [self ShowAlertWithTitle:@"Validation Error" WithMessage:@"Password length should be 6-12" WithTag:126];
-//        ValidationStatus = false;
-//        
-//    }
+    else if([self CleanTextField:LogintextFieldPassword.text].length < 6 || [self CleanTextField:LogintextFieldPassword.text].length > 12)
+    {
+        [self ShowAlertWithTitle:@"Validation Error" WithMessage:@"Password length should be 6-12" WithTag:126];
+        ValidationStatus = false;
+        
+    }
 //    else if (hostStatus == NotReachable)
 //    {
 //        [self ShowAlertWithTitle:@"Network Connectivity Error" WithMessage:@"Please Check Your Internet Connection Once" WithTag:127];
 //        ValidationStatus = false;
 //    }
-    
     if (ValidationStatus) {
         
         [self.view setUserInteractionEnabled:NO];

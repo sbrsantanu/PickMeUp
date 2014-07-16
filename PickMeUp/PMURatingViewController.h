@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface PMURatingViewController : UIViewController
+#import "PMUGlobalMethods.h"
+@interface PMURatingViewController : PMUGlobalMethods
 
 @end

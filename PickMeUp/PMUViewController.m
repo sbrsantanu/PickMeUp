@@ -48,8 +48,8 @@
         NSString *UserId = [Userdata objectForKey:@"LogedinUserId"];
         
         if ([UserId intValue] > 0) {
-           // PMUUserLocationViewController *UserLocation = [[PMUUserLocationViewController alloc] init];
-            PMURatingViewController *UserLocation = [[PMURatingViewController alloc] init];
+            PMUUserLocationViewController *UserLocation = [[PMUUserLocationViewController alloc] init];
+            //PMURatingViewController *UserLocation = [[PMURatingViewController alloc] init];
             [self GotoDifferentViewWithAnimation:UserLocation];
         } else {
             PMULoginViewController *LoginViewController = [[PMULoginViewController alloc] init];

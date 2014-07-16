@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PMUGlobalMethods.h"
 #import <CoreLocation/CoreLocation.h>
-@interface PMUSettingsViewController : PMUGlobalMethods <UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate>
+@interface PMUSettingsViewController : PMUGlobalMethods <UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate,UIAlertViewDelegate>
 
 @end
